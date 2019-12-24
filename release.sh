@@ -24,7 +24,8 @@ else
 fi
 
 # build source files
-rm dist && tsc build
+rm -Rf dist/*
+tsc
 
 # publish master branch
 cp package.json dist/
