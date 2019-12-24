@@ -1,0 +1,26 @@
+{
+  "name": "unused-webpack-plugin",
+  "version": "1.0.0",
+  "description": "A webpack plugin used to find unused source files",
+  "main": "UnusedWebpackPlugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/southerncross/unused-webpack-plugin.git"
+  },
+  "author": "lishunyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/southerncross/unused-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/southerncross/unused-webpack-plugin#readme",
+  "dependencies": {
+    "glob": "^7.1.6"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/node": "^13.1.0"
+  }
+}
