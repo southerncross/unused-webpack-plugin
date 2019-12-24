@@ -4,7 +4,7 @@
   "description": "A webpack plugin used to find unused source files",
   "main": "UnusedWebpackPlugin.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "sh ./release.sh"
   },
   "repository": {
     "type": "git",
