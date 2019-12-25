@@ -30,6 +30,7 @@ tsc
 # publish master branch
 cp package.json dist/
 cp package-lock.json dist/
+cp README dist/
 
 git add .
 git commit -m "Release version $next_version_v"
