@@ -1,6 +1,6 @@
 {
   "name": "@mokahr/unused-webpack-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A webpack plugin used to find unused source files",
   "main": "UnusedWebpackPlugin.js",
   "scripts": {
