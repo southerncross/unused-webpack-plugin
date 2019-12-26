@@ -28,10 +28,10 @@ class UnusedWebpackPlugin {
   options: Options;
   constructor(options: Options) {
     this.options = options || { cwd: '', patterns: [], ignores: [], output: '' };
-    this.options.cwd = options.cwd || './';
-    this.options.patterns = options.patterns || ['**/*.js', '**/*.styl'];
-    this.options.ignores = (options.ignores || []).concat('node_modules/**');
-    this.options.output = options.output || './unused-files';
+    this.options.cwd = this.options.cwd || './';
+    this.options.patterns = this.options.patterns || ['**/*.js', '**/*.styl'];
+    this.options.ignores = (this.options.ignores || []).concat('node_modules/**');
+    this.options.output = this.options.output || './unused-files';
 
     this.apply = this.apply.bind(this);
   }
