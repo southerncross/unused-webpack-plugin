@@ -25,7 +25,7 @@ fi
 
 # build source files
 rm -Rf dist/*
-tsc
+./node_modules/.bin/tsc
 
 # publish master branch
 cp package.json dist/
