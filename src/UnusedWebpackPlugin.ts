@@ -6,28 +6,28 @@ interface Options {
    * Current working directory
    * @defaultValue ./
    */
-  cwd: string;
+  cwd?: string;
   /**
    * Included patterns
    * @defaultValue ['**\/*.js', '**\/*.styl']
    */
-  patterns: string[];
+  patterns?: string[];
   /**
    * Excluded patterns
    * @defaultValue ['node_modules/**']
    */
-  ignores: string[];
+  ignores?: string[];
   /**
    * The output unused files list path
    * @defaultValue ./unused-files
    */
-  output: string;
+  output?: string;
 }
 
 class UnusedWebpackPlugin {
   options: Options;
   constructor(options: Options) {
-    this.options = options || { cwd: '', patterns: [], ignores: [], output: '' };
+    this.options = options || {};
     this.options.cwd = this.options.cwd || './';
     this.options.patterns = this.options.patterns || ['**/*.js', '**/*.styl'];
     this.options.ignores = (this.options.ignores || []).concat('node_modules/**');
@@ -39,11 +39,11 @@ class UnusedWebpackPlugin {
   apply(compiler: any) {
     compiler.plugin('after-compile', (compilation: any, callback: any) => {
       const localDependencies = new Set();
-      for (const dependency of compilation.fileDependencies) {
+      compilation.fileDependencies.forEach((dependency: string) => {
         if (!/node_modules/.test(dependency)) {
           localDependencies.add(dependency);
         }
-      }
+      });
 
       Promise.all(this.options.patterns.map((pattern) => {
         return new Promise((resolve, reject) => {
