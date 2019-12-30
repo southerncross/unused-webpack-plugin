@@ -24,7 +24,7 @@ else
 fi
 
 # build source files
-rm -Rf dist/*
+rm -Rf dist && mkdir dist
 ./node_modules/.bin/tsc
 
 # publish master branch
