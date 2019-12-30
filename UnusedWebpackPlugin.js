@@ -3,7 +3,7 @@ var fs = require("fs");
 var glob = require("glob");
 var UnusedWebpackPlugin = (function () {
     function UnusedWebpackPlugin(options) {
-        this.options = options || { cwd: '', patterns: [], ignores: [], output: '' };
+        this.options = options || {};
         this.options.cwd = this.options.cwd || './';
         this.options.patterns = this.options.patterns || ['**/*.js', '**/*.styl'];
         this.options.ignores = (this.options.ignores || []).concat('node_modules/**');
@@ -14,12 +14,11 @@ var UnusedWebpackPlugin = (function () {
         var _this = this;
         compiler.plugin('after-compile', function (compilation, callback) {
             var localDependencies = new Set();
-            for (var _i = 0, _a = compilation.fileDependencies; _i < _a.length; _i++) {
-                var dependency = _a[_i];
+            compilation.fileDependencies.forEach(function (dependency) {
                 if (!/node_modules/.test(dependency)) {
                     localDependencies.add(dependency);
                 }
-            }
+            });
             Promise.all(_this.options.patterns.map(function (pattern) {
                 return new Promise(function (resolve, reject) {
                     glob(pattern, { cwd: _this.options.cwd, ignore: _this.options.ignores, absolute: true }, function (err, files) {
