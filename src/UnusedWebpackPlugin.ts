@@ -29,7 +29,7 @@ class UnusedWebpackPlugin {
   constructor(options: Options) {
     this.options = options || {};
     this.options.cwd = this.options.cwd || './';
-    this.options.patterns = this.options.patterns || ['**/*.js', '**/*.styl'];
+    this.options.patterns = this.options.patterns || ['**/*.js', '**/*.styl', '**/*.less'];
     this.options.ignores = (this.options.ignores || []).concat('node_modules/**');
     this.options.output = this.options.output || './unused-files';
 

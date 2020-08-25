@@ -38,7 +38,7 @@ Current working directory, default value is `./`
 
 ### [optional] options.patterns: string[]
 
-Included glob pattern list, default value is `['**/*.js', '**/*.styl']`, which means only .js or .styl files will be checked.
+Included glob pattern list, default value is `['**/*.js', '**/*.styl', '**/*.less']`, which means only .js .styl or .less files will be checked.
 
 Note: Usually not all the static assets are referenced in js files directly, such as some images or font files, therefore we do not recommend to use the pattern `*` directly, otherwise you may got some misleading results.
 
